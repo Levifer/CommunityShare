@@ -1,58 +1,48 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Domein;
 
 import java.util.List;
 
-/**
- *
- * @author arne
- */
+
 public class Event extends Melding
 {
-    private String Type;
-    private List Categorie;
+    private String type;
+    private String categorie;
     
 
 	
 
 
 
-	public Event(String Type, List Categorie) 
+	public Event(String Type, String Categorie) 
         {
 		super();
-		this.Type = Type;
-                this.Categorie = Categorie;
+		this.type = Type;
+                this.categorie = Categorie;
         }
 
-    /**
-     * @return the Type
-     */
-    public String getType() {
-        return Type;
+    
+    public String getType() 
+    {
+        return type;
     }
 
-    /**
-     * @param Type the Type to set
-     */
-    public void setType(String Type) {
-        this.Type = Type;
+  
+    public void setType(String type) 
+    {
+        this.type = type;
     }
 
-    /**
-     * @return the Categorie
-     */
-    public List getCategorie() {
-        return Categorie;
+    
+    public String getCategorie() 
+    {
+        return categorie;
     }
 
-    /**
-     * @param Categorie the Categorie to set
-     */
-    public void setCategorie(List Categorie) {
-        this.Categorie = Categorie;
+   
+    public void setCategorie(String categorie) 
+    {
+        this.categorie = categorie;
     }
         
 	

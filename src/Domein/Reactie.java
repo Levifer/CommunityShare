@@ -10,37 +10,37 @@ package Domein;
  */
 public class Reactie 
 {
-    private int MeldingNr,PersoonNr;
-    private String Reactie;
+    private int meldingNr,persoonNr;
+    private String reactie;
 
-    public Reactie(int MeldingNr, int PersoonNr, String Reactie) {
-        this.MeldingNr = MeldingNr;
-        this.PersoonNr = PersoonNr;
-        this.Reactie = Reactie;
+    public Reactie(int meldingNr, int persoonNr, String reactie) {
+        this.meldingNr = meldingNr;
+        this.persoonNr = persoonNr;
+        this.reactie = reactie;
     }
 
     public int getMeldingNr() {
-        return MeldingNr;
+        return meldingNr;
     }
 
-    public void setMeldingNr(int MeldingNr) {
-        this.MeldingNr = MeldingNr;
+    public void setMeldingNr(int meldingNr) {
+        this.meldingNr = meldingNr;
     }
 
     public int getPersoonNr() {
-        return PersoonNr;
+        return persoonNr;
     }
 
-    public void setPersoonNr(int PersoonNr) {
-        this.PersoonNr = PersoonNr;
+    public void setPersoonNr(int persoonNr) {
+        this.persoonNr = persoonNr;
     }
 
     public String getReactie() {
-        return Reactie;
+        return reactie;
     }
 
-    public void setReactie(String Reactie) {
-        this.Reactie = Reactie;
+    public void setReactie(String reactie) {
+        this.reactie = reactie;
     }
     
     

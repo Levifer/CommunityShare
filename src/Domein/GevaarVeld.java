@@ -12,32 +12,32 @@ import java.util.List;
  */
 public class GevaarVeld extends Melding {
 
-    private String Type;
-    private List Categorie;
+    private String type;
+    private String categorie;
 
-    public GevaarVeld(String Type, List Categorie) 
+    public GevaarVeld(String type, String categorie) 
     {
-        this.Type = Type;
-        this.Categorie = Categorie;
+        this.type = type;
+        this.categorie = categorie;
     }
 
     public String getType() 
     {
-        return Type;
+        return type;
     }
 
-    public void setType(String Type) 
+    public void setType(String type) 
     {
-        this.Type = Type;
+        this.type = type;
     }
 
-    public List getCategorie() 
+    public String getCategorie() 
     {
-        return Categorie;
+        return categorie;
     }
 
-    public void setCategorie(List Categorie) 
+    public void setCategorie(String categorie) 
     {
-        this.Categorie = Categorie;
+        this.categorie = categorie;
     }
 }

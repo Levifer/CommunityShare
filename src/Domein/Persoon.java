@@ -10,15 +10,14 @@ package Domein;
  */
 public class Persoon 
 {
-    private int PersoonNr ,Score ;
-    private String Email , FacebookAccount , TwitterAccount;
+    private int persoonNr ,score ;
+    private String  facebookAccount , twitterAccount;
 
-    public Persoon(int PersoonNr, int Score, String Email, String FacebookAccount, String TwitterAccount) {
-        this.PersoonNr = PersoonNr;
-        this.Score = Score;
-        this.Email = Email;
-        this.FacebookAccount = FacebookAccount;
-        this.TwitterAccount = TwitterAccount;
+    public Persoon(int persoonNr, int score,  String facebookAccount, String twitterAccount) {
+        this.persoonNr = persoonNr;
+        this.score = score;
+        this.facebookAccount = facebookAccount;
+        this.twitterAccount = twitterAccount;
     }
 
 
@@ -27,43 +26,36 @@ public class Persoon
 
     
     public int getPersoonNr() {
-        return PersoonNr;
+        return persoonNr;
     }
 
-    public void setPersoonNr(int PersoonNr) {
-        this.PersoonNr = PersoonNr;
+    public void setPersoonNr(int persoonNr) {
+        this.persoonNr = persoonNr;
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
-    public void setScore(int Score) {
-        this.Score = Score;
+    public void setScore(int score) {
+        this.score = score;
     }
 
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String Email) {
-        this.Email = Email;
-    }
 
     public String getFacebookAccount() {
-        return FacebookAccount;
+        return facebookAccount;
     }
 
-    public void setFacebookAccount(String FacebookAccount) {
-        this.FacebookAccount = FacebookAccount;
+    public void setFacebookAccount(String facebookAccount) {
+        this.facebookAccount = facebookAccount;
     }
 
     public String getTwitterAccount() {
-        return TwitterAccount;
+        return twitterAccount;
     }
 
-    public void setTwitterAccount(String TwitterAccount) {
-        this.TwitterAccount = TwitterAccount;
+    public void setTwitterAccount(String twitterAccount) {
+        this.twitterAccount = twitterAccount;
     }
     
     

@@ -10,58 +10,58 @@ package Domein;
  */
 public class Melding 
 {
-    private int MeldingNr,PersoonNr,FotoNr;
-    private String StraatNaam,Gemeente,Omschrijving;
+    private int meldingNr,persoonNr,fotoNr;
+    private String straatNaam,gemeente,omschrijving;
 
     
     
     
     public int getMeldingNr() {
-        return MeldingNr;
+        return meldingNr;
     }
 
-    public void setMeldingNr(int MeldingNr) {
-        this.MeldingNr = MeldingNr;
+    public void setMeldingNr(int meldingNr) {
+        this.meldingNr = meldingNr;
     }
 
     public int getPersoonNr() {
-        return PersoonNr;
+        return persoonNr;
     }
 
-    public void setPersoonNr(int PersoonNr) {
-        this.PersoonNr = PersoonNr;
+    public void setPersoonNr(int persoonNr) {
+        this.persoonNr = persoonNr;
     }
 
     public int getFotoNr() {
-        return FotoNr;
+        return fotoNr;
     }
 
-    public void setFotoNr(int FotoNr) {
-        this.FotoNr = FotoNr;
+    public void setFotoNr(int fotoNr) {
+        this.fotoNr = fotoNr;
     }
 
     public String getStraatNaam() {
-        return StraatNaam;
+        return straatNaam;
     }
 
-    public void setStraatNaam(String StraatNaam) {
-        this.StraatNaam = StraatNaam;
+    public void setStraatNaam(String straatNaam) {
+        this.straatNaam = straatNaam;
     }
 
     public String getGemeente() {
-        return Gemeente;
+        return gemeente;
     }
 
-    public void setGemeente(String Gemeente) {
-        this.Gemeente = Gemeente;
+    public void setGemeente(String gemeente) {
+        this.gemeente = gemeente;
     }
 
     public String getOmschrijving() {
-        return Omschrijving;
+        return omschrijving;
     }
 
-    public void setOmschrijving(String Omschrijving) {
-        this.Omschrijving = Omschrijving;
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
     }
     
 }

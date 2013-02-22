@@ -20,7 +20,7 @@ public class FotoMapper
     //private final static String LEES_Foto_SQL = "SELECT * FROM Foto Order by FotoNr asc";
     private Foto F;
 
-    public Foto geefFoto(int FotoNr) 
+    public Foto geefFoto(int fotoNr) 
 	{
 		
 		Statement statement;
@@ -29,13 +29,13 @@ public class FotoMapper
 		try 
 		{
 			statement = connecti.getConnection().createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM Foto WHERE FotoNr ='"+FotoNr+"'");
+			ResultSet rs = statement.executeQuery("SELECT * FROM Foto WHERE FotoNr ='"+fotoNr+"'");
 			
-                        Blob foto=rs.getBlob("Foto");				 
-                        InputStream imageBlobStream=foto.getBinaryStream();
-                        BufferedImage Foto=ImageIO.read(imageBlobStream);
+                        Blob Foto=rs.getBlob("Foto");				 
+                        InputStream imageBlobStream=Foto.getBinaryStream();
+                        BufferedImage foto=ImageIO.read(imageBlobStream);
 
-			F = new Foto(rs.getInt("FotoNr"), Foto);
+			F = new Foto(rs.getInt("FotoNr"), foto);
 			connecti.closeConnection();
 			statement.close();
 		} 

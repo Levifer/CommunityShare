@@ -8,6 +8,8 @@ package Persistentie;
  *
  * @author arne
  */
-public class EventMapper {
+public class EventMapper 
+{
+    
     
 }

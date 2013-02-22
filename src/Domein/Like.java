@@ -10,46 +10,46 @@ package Domein;
  */
 public class Like 
 {
-    private int MeldingNr,PersoonNr;
-    private boolean Liken;
+    private int meldingNr,persoonNr;
+    private boolean liken;
 
-    public Like(int MeldingNr, int PersoonNr, boolean Liken) 
+    public Like(int meldingNr, int persoonNr, boolean liken) 
     {
-        this.MeldingNr = MeldingNr;
-        this.PersoonNr = PersoonNr;
-        this.Liken = Liken;
+        this.meldingNr = meldingNr;
+        this.persoonNr = persoonNr;
+        this.liken = liken;
     }
     
     
 
     public int getMeldingNr() 
     {
-        return MeldingNr;
+        return meldingNr;
     }
 
-    public void setMeldingNr(int MeldingNr) 
+    public void setMeldingNr(int meldingNr) 
     {
-        this.MeldingNr = MeldingNr;
+        this.meldingNr = meldingNr;
     }
 
     public int getPersoonNr()
     {
-        return PersoonNr;
+        return persoonNr;
     }
 
-    public void setPersoonNr(int PersoonNr) 
+    public void setPersoonNr(int persoonNr) 
     {
-        this.PersoonNr = PersoonNr;
+        this.persoonNr = persoonNr;
     }
 
     public boolean isLiken() 
     {
-        return Liken;
+        return liken;
     }
 
-    public void setLiken(boolean Liken)
+    public void setLiken(boolean liken)
     {
-        this.Liken = Liken;
+        this.liken = liken;
     }
     
 }

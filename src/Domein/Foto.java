@@ -6,30 +6,30 @@ import java.awt.image.BufferedImage;
 
 public class Foto
 {
-    private int FotoNr;
-    private BufferedImage Foto;
+    private int fotoNr;
+    private BufferedImage foto;
 
     
-    public Foto(int FotoNr, BufferedImage Foto) 
+    public Foto(int fotoNr, BufferedImage foto) 
     {
-        this.FotoNr = FotoNr;
-        this.Foto = Foto;
+        this.fotoNr = fotoNr;
+        this.foto = foto;
     }
 
     public int getFotoNr() {
-        return FotoNr;
+        return fotoNr;
     }
 
-    public void setFotoNr(int FotoNr) {
-        this.FotoNr = FotoNr;
+    public void setFotoNr(int fotoNr) {
+        this.fotoNr = fotoNr;
     }
 
     public BufferedImage getFoto() {
-        return Foto;
+        return foto;
     }
 
-    public void setFoto(BufferedImage Foto) {
-        this.Foto = Foto;
+    public void setFoto(BufferedImage foto) {
+        this.foto = foto;
     }
     
     
