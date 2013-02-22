@@ -81,9 +81,16 @@ public class PersoonMapper {
 			while (rs.next()) {
                                  int PersoonNr = 0;
                                  String Email = null;
-				Pers = new Persoon(PersoonNr, rs.getInt("Score"),Email, rs.getString("FacebookAccount"), rs.getString("TwitterAccount"));
-			
-							
+                                 if(rs.getString("TwitterAccount").equals(null))
+                                 {
+                                     String TwitterAccount = "geen";
+                                     Pers = new Persoon(PersoonNr, rs.getInt("Score"),Email, rs.getString("FacebookAccount"), TwitterAccount);
+                                 }
+                                 else
+                                 {
+                                     String FacebookAccount = "geen";
+                                     Pers = new Persoon(PersoonNr, rs.getInt("Score"),Email, FacebookAccount,rs.getString("TwitterAccount"));
+                                 }
 				PersoonLijst.add(Pers);
 				
 				
