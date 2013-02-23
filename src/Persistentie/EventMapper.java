@@ -3,11 +3,13 @@ package Persistentie;
 
 import Domein.Event;
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 public class EventMapper 
@@ -15,18 +17,18 @@ public class EventMapper
     
  
 
-	private final static String LEES_EVENT_SQL = "SELECT * FROM Event Order by MeldingNr asc";
-	////deze klasse is voor gegevens in de databank te steken, uit te halen, up te date en te verwijderen voor de table Inbox 
+
+	//deze klasse is voor gegevens in de databank te steken, uit te halen, up te date en te verwijderen voor de table Inbox 
 	
-	public List<Event> geefLijst(String gemeente) 
+	public List<Event> geefLijstEvent(String gemeente) 
 	{
 		List<Event> Gegevenslijst = new ArrayList<Event>();
 		Statement statement;
-		Connectie connecti = new Connectie();
+		Connectie connect = new Connectie();
 		
 		try 
 		{
-			statement = connecti.getConnection().createStatement();
+			statement = connect.getConnection().createStatement();
 			ResultSet rs = statement.executeQuery("SELECT MeldingNr, Omschrijving FROM Event WHERE Gemeente ='"+gemeente+"' Order by Datum decs ");
 			
 			while (rs.next()) 
@@ -42,71 +44,77 @@ public class EventMapper
 				Event e = new Event(categorieEvent,rs.getInt("MeldingNr"),persoonNr,fotoNr,teller,straatNaam,gemeente,rs.getString("Omschrijving"),datum);
 				Gegevenslijst.add(e);	
                            }
-			connecti.closeConnection();
+			connect.closeConnection();
 			statement.close();
 		} 
 		
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-		}catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return Gegevenslijst;
 	}
-	public void verwijderEenEvent(int meldingNr) 
+	public void verwijderenVanEenEvent(int meldingNr,int persoonNr) 
 	{
-		Connectie connecti = new Connectie();
+                Connectie connect = new Connectie();
 		
 			try
-		    {
-				String sql="DELETE FROM Inbox WHERE Title ='"+title+"' AND Gebruiker='"+gebruiker+"'";			
-				PreparedStatement ps = connecti.getConnection().prepareStatement(sql);			
-				ps.executeUpdate();
-				ps.close();										
-				connecti.closeConnection();
-		    }
+                        {
+				String sql="DELETE FROM Event WHERE ("
+                                        + "MeldingNr,"
+                                        + "PersoonNr) "
+                                        + "VALUES(?,?)";			
+				PreparedStatement pstmt = connect.getConnection().prepareStatement(sql);	
+                                pstmt.setInt(1, meldingNr);
+				pstmt.executeUpdate();
+				pstmt.close();										
+				connect.closeConnection();
+                        }
 			catch(SQLException e)
 			{
-				JOptionPane.showMessageDialog(null, "Post bestaat niet!");				
+				System.out.println("deze event bestaat niet of u bent niet eigenaar van dit event ");				
 			}
 			
 		
 	} 
-	public void nieuweItem(Inbox ib) 
+	public void aanmakenVanEenEvent(Event e) 
 	{
-		connection connecti = new connection();
+                Connectie connect = new Connectie();
 
-		try
-		{			
-			
-			Blob afbeelding=connecti.getConnection().createBlob();
-			OutputStream afbeeldingStream=afbeelding.setBinaryStream(1);
-			ImageIO.write(ib.getAfbeelding(),"png",afbeeldingStream);
-			
-			Statement s = connecti.getConnection().createStatement();//connectie maken
-			ResultSet rs = s.executeQuery("SELECT Title FROM Inbox ORDER BY Title desc");
-			rs.next();			
-			PreparedStatement pstmt = connecti.getConnection().prepareStatement("INSERT INTO Inbox(Title,Afbeelding,Commentaar,Tijd,Gebruiker,Type) VALUES(?,?,?,?,?,?)");
-			pstmt.setString(1, ib.getTitle());
-			pstmt.setBlob(2, afbeelding);
-			pstmt.setString(3, ib.getCommentaar());
-			pstmt.setString(4, ib.getTijd());
-			pstmt.setString(5, ib.getGebruiker());
-			pstmt.setString(6, ib.getType());			
+                        try
+                        {
+                        // String categorieEvent, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum		
+			PreparedStatement pstmt = connect.getConnection().prepareStatement("INSERT INTO Event("
+                                + "CategorieEvent,"
+                                + "MeldingNr,"
+                                + "PersoonNr,"
+                                + "FotoNr,"
+                                + "Teller,"
+                                + "StraatNaam,"
+                                + "gemeente,"
+                                + "omschrijving,"
+                                + "datum) "
+                                + "VALUES(?,?,?,?,?,?,?,?,?)");
+			pstmt.setString(1, e.getCategorie());
+                        pstmt.setInt(2, e.getMeldingNr());
+                        pstmt.setInt(3,e.getPersoonNr());
+                        pstmt.setInt(4,e.getFotoNr());
+                        pstmt.setInt(5,e.getTeller());
+                        pstmt.setString(6,e.getStraatNaam());
+                        pstmt.setString(7, e.getGemeente());
+                        pstmt.setString(8, e.getOmschrijving());
+                        pstmt.setDate(9, e.getDatum());
+                        
+					
 						
 			pstmt.executeUpdate();
-			connecti.closeConnection();
+			connect.closeConnection();
 		}
 
 		catch (SQLException sqlException) 
 		{
-			JOptionPane.showMessageDialog(null, sqlException.getMessage(),"Database Error", JOptionPane.ERROR_MESSAGE);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			System.out.println("Database error");
+		} 
 	}    
     public Inbox zoekLijst(String title,String auteur)
 	{

@@ -4,7 +4,9 @@
  */
 package Domein;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 
 public class Melding 
@@ -24,9 +26,6 @@ public class Melding
         this.datum = datum;
     }
 
-
-
-    
     public int getMeldingNr() {
         return meldingNr;
     }
@@ -49,6 +48,14 @@ public class Melding
 
     public void setFotoNr(int fotoNr) {
         this.fotoNr = fotoNr;
+    }
+
+    public int getTeller() {
+        return teller;
+    }
+
+    public void setTeller(int teller) {
+        this.teller = teller;
     }
 
     public String getStraatNaam() {
@@ -74,5 +81,18 @@ public class Melding
     public void setOmschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
     }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+
+
+    
+
     
 }

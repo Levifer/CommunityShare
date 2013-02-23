@@ -1,7 +1,9 @@
 
 package Domein;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 
 
@@ -11,10 +13,13 @@ public class Event extends Melding
     
     private String categorieEvent;
 
-    public Event(String categorieEvent, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) {
+    public Event(String categorieEvent, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum)
+    {
         super(meldingNr, persoonNr, fotoNr, teller, straatNaam, gemeente, omschrijving, datum);
         this.categorieEvent = categorieEvent;
     }
+
+
 
  
 
