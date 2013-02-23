@@ -1,48 +1,33 @@
 
 package Domein;
 
-import java.util.List;
+import java.util.Date;
+
+
 
 
 public class Event extends Melding
 {
-    private String type;
-    private String categorie;
     
+    private String categorieEvent;
 
-	
-
-
-
-	public Event(String Type, String Categorie) 
-        {
-		super();
-		this.type = Type;
-                this.categorie = Categorie;
-        }
-
-    
-    public String getType() 
-    {
-        return type;
+    public Event(String categorieEvent, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) {
+        super(meldingNr, persoonNr, fotoNr, teller, straatNaam, gemeente, omschrijving, datum);
+        this.categorieEvent = categorieEvent;
     }
 
-  
-    public void setType(String type) 
-    {
-        this.type = type;
-    }
+ 
 
     
     public String getCategorie() 
     {
-        return categorie;
+        return categorieEvent;
     }
 
    
     public void setCategorie(String categorie) 
     {
-        this.categorie = categorie;
+        this.categorieEvent = categorie;
     }
         
 	

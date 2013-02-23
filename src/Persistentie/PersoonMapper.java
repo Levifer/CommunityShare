@@ -17,7 +17,7 @@ import java.util.List;
  * @author arne
  */
 public class PersoonMapper {
-    private final static String LEES_PERSOON_SQL = "SELECT * FROM Personeel Order by Naam asc";
+   
     private Persoon Pers;
 	
 	public Persoon logIn(String facebookAccount, String twitterAccount)

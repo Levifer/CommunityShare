@@ -4,14 +4,28 @@
  */
 package Domein;
 
+import java.util.Date;
+
 
 public class Melding 
 {
-    private int meldingNr,persoonNr,fotoNr;
+    private int meldingNr,persoonNr,fotoNr,teller;//teller zodat de melding kan bijhouden hoeveel er het gelike of gedisliked hebben
     private String straatNaam,gemeente,omschrijving;
+    private Date datum;
 
-    
-    
+    public Melding(int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) {
+        this.meldingNr = meldingNr;
+        this.persoonNr = persoonNr;
+        this.fotoNr = fotoNr;
+        this.teller = teller;
+        this.straatNaam = straatNaam;
+        this.gemeente = gemeente;
+        this.omschrijving = omschrijving;
+        this.datum = datum;
+    }
+
+
+
     
     public int getMeldingNr() {
         return meldingNr;

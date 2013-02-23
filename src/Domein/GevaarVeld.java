@@ -4,6 +4,7 @@
  */
 package Domein;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,32 +13,26 @@ import java.util.List;
  */
 public class GevaarVeld extends Melding {
 
-    private String type;
-    private String categorie;
+   
+    private String categorieGevaar;
 
-    public GevaarVeld(String type, String categorie) 
+    
+    public GevaarVeld(String categorieGevaar, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) 
     {
-        this.type = type;
-        this.categorie = categorie;
+        super(meldingNr, persoonNr, fotoNr, teller, straatNaam, gemeente, omschrijving, datum);
+        this.categorieGevaar = categorieGevaar;
     }
 
-    public String getType() 
-    {
-        return type;
-    }
 
-    public void setType(String type) 
-    {
-        this.type = type;
-    }
+
 
     public String getCategorie() 
     {
-        return categorie;
+        return categorieGevaar;
     }
 
     public void setCategorie(String categorie) 
     {
-        this.categorie = categorie;
+        this.categorieGevaar = categorie;
     }
 }
