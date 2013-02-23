@@ -14,7 +14,7 @@ import java.util.List;
 
 public class EventMapper 
 {
-    
+    private Event e;
  
 
 
@@ -41,7 +41,16 @@ public class EventMapper
                                     String gemeent = null;
                                      Date datum= null;
 				 
-				Event e = new Event(categorieEvent,rs.getInt("MeldingNr"),persoonNr,fotoNr,teller,straatNaam,gemeente,rs.getString("Omschrijving"),datum);
+				Event e = new Event(categorieEvent,
+                                        rs.getInt("MeldingNr"),
+                                        persoonNr,
+                                        fotoNr,
+                                        teller,
+                                        straatNaam,
+                                        gemeente,
+                                        rs.getString("Omschrijving"),
+                                        datum);
+                                
 				Gegevenslijst.add(e);	
                            }
 			connect.closeConnection();
@@ -116,44 +125,43 @@ public class EventMapper
 			System.out.println("Database error");
 		} 
 	}    
-    public Inbox zoekLijst(String title,String auteur)
+    public Event zoekLijst(int meldingNr)
 	{
-		Inbox ib = new Inbox();
+		
 		Statement statement;
-		connection connecti = new connection();
+		Connectie connect = new Connectie();
 		
 		try
 	    {
-		statement = connecti.getConnection().createStatement();
-		ResultSet rs = statement.executeQuery("SELECT * FROM Inbox WHERE Title ='"+title+"'AND Gebruiker='"+auteur+"'");
+		statement = connect.getConnection().createStatement();
+		ResultSet rs = statement.executeQuery("SELECT * FROM Event WHERE MeldingNr ='"+meldingNr+"'");
 	
 		while(rs.next())
 		{
-			 String titles=rs.getString("Title");
-			 Blob afbeelding=rs.getBlob("Afbeelding");
-			 String commentaar=rs.getString("Commentaar");
-			 String tijd=rs.getString("Tijd");
-			 String gebruiker=rs.getString("Gebruiker");
-			 String type=rs.getString("Type");
+			
 			 
-				InputStream imageBlobStream=afbeelding.getBinaryStream();
-				BufferedImage Afbeelding=ImageIO.read(imageBlobStream);
+				
 
+			 e = new Event(rs.getString("CategorieEvent"),
+                         rs.getInt("meldingNr"),
+                         rs.getInt("PersoonNr"),
+                         rs.getInt("FotoNr"),
+                         rs.getInt("Teller"),
+                         rs.getString("StraatNaam"),
+                         rs.getString("Gemeente"),
+                         rs.getString("Omschrijving"),
+                         rs.getDate("Datum"));
 			 
-			 ib = new Inbox( titles,Afbeelding,commentaar,tijd,gebruiker,type);
 			
 		}
-		connecti.closeConnection();
+		connect.closeConnection();
 
 	    }
 		catch(SQLException e)
 		{
-			System.out.println( "Post bestaat niet!");
+			System.out.println( "Event bestaat niet!");
 			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ib;
+		} 
+		return e;
 	}
 }
