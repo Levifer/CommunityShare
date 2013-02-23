@@ -49,6 +49,27 @@ public class Connectie
                 }
             }
         }
+        public boolean testConnection(){
+                boolean connection = true;
+                showMessage("Testing Connection ********");
+             try{
+                     getConnection();
+                     closeConnection();
+                }
+             catch(Exception e){
+                    connection = false;
+                    showMessage("Connection FAILED!");
+                }
+             finally{
+                    showMessage("************ Testing Ended.");
+                    }
+                    return connection;
+                 }
+        
+         private void showMessage(String message)
+         {
+                 System.out.println("Database: " + message);
+         }
 }
 	
 

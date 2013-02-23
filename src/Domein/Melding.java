@@ -4,10 +4,7 @@
  */
 package Domein;
 
-/**
- *
- * @author arne
- */
+
 public class Melding 
 {
     private int meldingNr,persoonNr,fotoNr;
