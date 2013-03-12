@@ -11,12 +11,12 @@ import java.sql.Date;
 
 public class Melding 
 {
-    private int meldingNr,persoonNr,fotoNr,teller;//teller zodat de melding kan bijhouden hoeveel er het gelike of gedisliked hebben
+    private int persoonNr,fotoNr,teller;//teller zodat de melding kan bijhouden hoeveel er het gelike of gedisliked hebben
     private String straatNaam,gemeente,omschrijving;
     private Date datum;
 
-    public Melding(int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) {
-        this.meldingNr = meldingNr;
+    public Melding( int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) {
+        
         this.persoonNr = persoonNr;
         this.fotoNr = fotoNr;
         this.teller = teller;
@@ -26,13 +26,6 @@ public class Melding
         this.datum = datum;
     }
 
-    public int getMeldingNr() {
-        return meldingNr;
-    }
-
-    public void setMeldingNr(int meldingNr) {
-        this.meldingNr = meldingNr;
-    }
 
     public int getPersoonNr() {
         return persoonNr;

@@ -16,12 +16,21 @@ public class GevaarVeld extends Melding {
 
    
     private String categorieGevaar;
+    private int gevaarNr;
 
     
-    public GevaarVeld(String categorieGevaar, int meldingNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) 
+    public GevaarVeld(String categorieGevaar, int gevaarNr, int persoonNr, int fotoNr, int teller, String straatNaam, String gemeente, String omschrijving, Date datum) 
     {
-        super(meldingNr, persoonNr, fotoNr, teller, straatNaam, gemeente, omschrijving, datum);
+        super(persoonNr, fotoNr, teller, straatNaam, gemeente, omschrijving, datum);
         this.categorieGevaar = categorieGevaar;
+    }
+
+    public int getGevaarNr() {
+        return gevaarNr;
+    }
+
+    public void setGevaarNr(int gevaarNr) {
+        this.gevaarNr = gevaarNr;
     }
 
 

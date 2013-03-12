@@ -24,7 +24,7 @@ public class Connectie
 	
                  //conn = DriverManager.getConnection("jdbc:sqlserver://LumenData.mssql.somee.com;database=LumenData;user=LumenDatabase;password=Cs24Wt!!");
                  //conn = DriverManager.getConnection("jdbc:sqlserver://Lumendatabase.mssql.somee.com;database=Lumendatabase;user=lumen;password=Cs24Wt!!");
-                 conn =  DriverManager.getConnection("jdbc:sqlserver://ARNE-PC;database=Lumen2;user=arne;password=arne");
+                 conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/databaseproject?user=root&password=mj3qbka4");
             }
             catch(SQLException e)
             {

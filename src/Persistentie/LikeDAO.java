@@ -14,7 +14,7 @@ import java.sql.Statement;
  *
  * @author arne
  */
-public class LikeMapper {
+public class LikeDAO {
     
     //zoeken niet nodig
     
@@ -24,16 +24,18 @@ public class LikeMapper {
         Statement statement;
         try{
             statement = connecti.getConnection().createStatement();
-            String sql=("INSERT INTO Like( "
-                    + "MeldingNr,"
+            String sql=("INSERT INTO like( "
+                    + "EventNr,"
+                    + "GevaarNr,"
                     + "PersoonNr,"
                     + "Liken )"
-                    + "VALUES(?,?,?)");
+                    + "VALUES(?,?,?,?)");
             
             PreparedStatement pstmt = connecti.getConnection().prepareStatement(sql);
-            pstmt.setInt(1,l.getMeldingNr());
-            pstmt.setInt(2,l.getPersoonNr());
-            pstmt.setBoolean(3,l.isLiken());
+            pstmt.setInt(1,l.getEventNr());
+            pstmt.setInt(2, l.getGevaarNr());
+            pstmt.setInt(3,l.getPersoonNr());
+            pstmt.setBoolean(4,l.isLiken());
             
             pstmt.executeUpdate();
            
@@ -54,16 +56,18 @@ public class LikeMapper {
          Statement statement;
         try{
             statement= connecti.getConnection().createStatement();
-            String sql= ("DELETE FROM Like WHERE("
-                    + "MeldingNr"
+            String sql= ("DELETE FROM like WHERE("
+                    + "EventNr"
+                    + "GevaarNr"
                     + "PersoonNr,"
                     + "Liken )"
-                    + "VALUES(?,?,?)");
+                    + "VALUES(?,?,?,?)");
             
             PreparedStatement pstmt = connecti.getConnection().prepareStatement(sql);
-             pstmt.setInt(1, l.getMeldingNr());
-             pstmt.setInt(2, l.getPersoonNr());
-             pstmt.setBoolean(3, l.isLiken());
+             pstmt.setInt(1, l.getEventNr());
+             pstmt.setInt(2, l.getGevaarNr());
+             pstmt.setInt(3, l.getPersoonNr());
+             pstmt.setBoolean(4, l.isLiken());
              pstmt.executeUpdate();
              pstmt.close();
              connecti.closeConnection();
