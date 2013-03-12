@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author arne
  */
-public class PersoonMapper {
+public class PersoonDAO {
    
     private Persoon Pers;
 	
@@ -31,7 +31,7 @@ public class PersoonMapper {
              {
 		
 		Statement s = c.getConnection().createStatement();
-		ResultSet rs = s.executeQuery("SELECT * FROM Persoon WHERE FacebookAccount ='"+facebookAccount+"' OR TwitterAccount='"+twitterAccount+"'");
+		ResultSet rs = s.executeQuery("SELECT * FROM persoon WHERE FacebookAccount ='"+facebookAccount+"' OR TwitterAccount='"+twitterAccount+"'");
 		//gaat in database zoeken waar wachtwoord en userid overeenkomen en haalt dat object eruit eruit 
 		rs.next();
 		//FacebookAccount=rs.getString("FacebookAccount");
@@ -75,7 +75,7 @@ public class PersoonMapper {
 			
 
 			// query database
-			ResultSet rs = statement.executeQuery("SELECT FacebookAccount,TwitterAccount,Score FROM Persoon ORDER BY Score desc");
+			ResultSet rs = statement.executeQuery("SELECT FacebookAccount,TwitterAccount,Score FROM persoon ORDER BY Score desc");
 			
 			while (rs.next()) {
                                  int persoonNr = 0;
@@ -114,7 +114,7 @@ public class PersoonMapper {
 					
 					
 					Statement s = connecti.getConnection().createStatement();//connectie maken
-					ResultSet rs = s.executeQuery("SELECT PersoonNr FROM Persoon ORDER BY PersoonNr desc");
+					ResultSet rs = s.executeQuery("SELECT PersoonNr FROM persoon ORDER BY PersoonNr desc");
 					rs.next();
 					
 					
